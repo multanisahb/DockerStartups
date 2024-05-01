@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  swagger-editor:
+    image: swaggerapi/swagger-editor
+    container_name: "swagger-editor-local"
+    ports:
+      - '9001:8080'
+    volumes:
+      - /Users/multani/HomeProjects/idea/readyToStart/DockerStartups/swaggerDocker:/swagger
+    environment:
+      SWAGGER_FILE: /swagger/api-with-examples.yaml
+  swagger-ui:
+    image: swaggerapi/swagger-ui:v5.0.0-alpha.15
+    container_name: "swagger-ui-local"
+    ports:
+      - '9002:8080'
+    volumes:
+      - /Users/multani/HomeProjects/idea/readyToStart/DockerStartups/swaggerDocker:/swagger
+    environment:
+      SWAGGER_JSON: /swagger/api-with-examples.yaml
